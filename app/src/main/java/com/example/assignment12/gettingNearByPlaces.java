@@ -25,17 +25,12 @@ public class gettingNearByPlaces extends AsyncTask<Object, String, String> {
 
         try{
             placeData = fetchingURL.readUrl(url);
-//            placeData = fetchUrl.read
         }
         catch (IOException e){
             e.printStackTrace();
         }
         return placeData;
     }
-
-
-
-
     @Override
     protected void onPostExecute(String s) {
         List<HashMap<String, String>> nearbyPlaceList = null;
@@ -55,8 +50,6 @@ public class gettingNearByPlaces extends AsyncTask<Object, String, String> {
             double lng = Double.parseDouble(place.get("longitude"));
 
             LatLng latLng = new LatLng(lat, lng);
-
-            //Marker options
 
             MarkerOptions markerOptions = new MarkerOptions()
                     .position(latLng)

@@ -56,18 +56,15 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     GoogleMap mMap;
     private final int REQUEST_CODE = 1;
     Marker marker;
-    ////int counter = 0 ;
-////Button save;
+
     String address;
 
     private  static final String TAG = "MainActivity";
-    //get User Location
 
      FusedLocationProviderClient fusedLocationProviderClient;
     LocationCallback locationCallback;
     LocationRequest locationRequest;
 
-    // latitude and longitude
 
     double latitude, longitude;
     double destlat, destlng;
@@ -188,18 +185,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 if (marker != null) {
                     marker.remove();
                 }
-                //set marker
-
                 setMarker(location);
 
-
-
-//to test address here
                 getaddress();
                 Toast.makeText(MainActivity.this, "here is "+ address+"nothing", Toast.LENGTH_SHORT).show();
-
-
-
 
                 alertDialog = new AlertDialog.Builder(MainActivity.this);
                 alertDialog.setMessage("Do you want to S ave this place.");
@@ -210,7 +199,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                             public void onClick(DialogInterface dialog, int id) {
 
                                 addplaces();
-//                                Toast.makeText(MainActivity.this, "hiiiiii", Toast.LENGTH_SHORT).show();
                                 if(marker!= null)
                                     marker.remove();
                             }
@@ -231,35 +219,33 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     }
 
 
+
+
     private void getaddress() {
         String add = "";
 
         Geocoder geocoder = new Geocoder(getApplicationContext(), Locale.getDefault());
         try {
+
             List<Address> address = geocoder.getFromLocation(destlat, destlng, 1);
+
             if (address != null && address.size() > 0) {
                 Log.i(TAG, "onLocationResult" + address.get(0));
 
                 if (address.get(0).getSubLocality() != null) {
                     add += " " + address.get(0).getSubLocality();
-
                 }
 
                 if (address.get(0).getLocality() != null) {
                     add += " " + address.get(0).getLocality();
-
                 }
 
                 if (address.get(0).getCountryName() != null) {
-                    add += " " + address.get(0).getCountryName();
-
-                }
+                    add += " " + address.get(0).getCountryName(); }
 
 
                 if (address.get(0).getPostalCode() != null) {
-                    add += " " + address.get(0).getPostalCode();
-
-                }
+                    add += " " + address.get(0).getPostalCode(); }
 
 
                 Toast.makeText(MainActivity.this, add, Toast.LENGTH_SHORT).show();
@@ -281,7 +267,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
 
         marker =  mMap.addMarker(options);
-//        counter +=1;
     }
 
 
@@ -369,13 +354,8 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                     requestPermission();
                 else
                     fusedLocationProviderClient.requestLocationUpdates(locationRequest, locationCallback, Looper.myLooper());
-
-
                 break;
-
-
             case R.id.btn_favourite:
-                //start activity to another activity to use the list of employees
                 Intent intent = new Intent(MainActivity.this,favouritePlace.class);
                 startActivity(intent);
                 break;
@@ -402,7 +382,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
         return placeUrl.toString();
     }
 
-
     private void addplaces() {
 
         Calendar calendar = Calendar.getInstance();
@@ -416,10 +395,6 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
     }
 
-
-
-
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_item,menu);
@@ -431,22 +406,16 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         switch (item.getItemId()) {
             case R.id.normal:
-                // do something
                 mMap.setMapType(GoogleMap.MAP_TYPE_NORMAL);
                 return true;
             case R.id.sattelite:
-                // do something
                 mMap.setMapType(GoogleMap.MAP_TYPE_SATELLITE);
                 return true;
             case R.id.hybrid:
-                // do something
                 mMap.setMapType(GoogleMap.MAP_TYPE_HYBRID);
                 return true;
-
             default:
                 return super.onContextItemSelected(item);
         }
     }
-
-
 }
