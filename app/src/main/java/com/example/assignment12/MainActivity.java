@@ -304,7 +304,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
 
                 Toast.makeText(this, "Restaurants", Toast.LENGTH_SHORT).show();
                 break;
-            case R.id.btn_cafe:
+            case R.id.btn_petrol:
                 //get the url from place api
                 mMap.clear();
                 String url1 = getUrl(latitude, longitude, "cafe");
@@ -314,10 +314,10 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 gettingNearByPlaces gettingNearByPlaces1 = new gettingNearByPlaces();
                 gettingNearByPlaces1.execute(dataTransfer);
 
-                Toast.makeText(this, "Cafes", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Petrol", Toast.LENGTH_SHORT).show();
                 break;
 
-            case R.id.btn_groceries:
+            case R.id.btn_grocery:
                 //get the url from place api
                 mMap.clear();
                 String url2 = getUrl(latitude, longitude, "groceries");
@@ -374,7 +374,7 @@ public class MainActivity extends AppCompatActivity implements OnMapReadyCallbac
                 break;
 
 
-            case R.id.btn_fav_place:
+            case R.id.btn_favourite:
                 //start activity to another activity to use the list of employees
                 Intent intent = new Intent(MainActivity.this,favouritePlace.class);
                 startActivity(intent);

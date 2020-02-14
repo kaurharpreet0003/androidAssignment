@@ -1,18 +1,122 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <Button
+            android:id="@+id/btn_restaurant"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_marginRight="0.5dp"
+            android:layout_weight="1"
+            android:background="#fff"
+            android:onClick="btnClick"
+            android:text="Restaurant"
+            android:textColor="#000" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="coffee"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_coffee"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#000"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="petrol"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_petrol"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#000"/>
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Grocery"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_grocery"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#000"/>
+
+    </LinearLayout>
+
+
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_weight="1"
+        android:layout_height="400dp"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/saveButton"
+        android:text="Save"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Direction"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_direction"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#000"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Favourites"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_favourite"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#000"/>
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="distance"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_distance"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#000"/>
+
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="Clear"
+            android:layout_marginLeft="0.5dp"
+            android:id="@+id/btn_clear"
+            android:onClick="btnClick"
+            android:background="#fff"
+            android:textColor="#011"/>
+    </LinearLayout>
+</LinearLayout>
+
+

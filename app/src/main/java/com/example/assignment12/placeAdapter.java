@@ -1,19 +1,30 @@
 package com.example.assignment12;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
+import android.database.Cursor;
 import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import java.util.List;
 
 public class placeAdapter extends ArrayAdapter {
 
     Context mContext;
     int layoutRes;
-    List<favoritePlace> places;
+    List<favouritePlace> places;
     //SQLiteDatabase mDatabase;
 
     DatabaseHelper mDatabase;
 
-    public placeAdapter( Context mContext, int layoutRes, List<favoritePlace> places, DatabaseHelper mDatabase) {
+    public placeAdapter(Context mContext, int layoutRes, List<favouritePlace> places, DatabaseHelper mDatabase) {
         super(mContext, layoutRes,places);
         this.mContext = mContext;
         this.layoutRes = layoutRes;
@@ -32,7 +43,7 @@ public class placeAdapter extends ArrayAdapter {
         TextView tvlng = v.findViewById(R.id.longitude);
         TextView tvDate = v.findViewById(R.id.date);
 
-        final favoritePlace fav_place = places.get(position);
+        final favouritePlace fav_place = places.get(position);
         tvaddress.setText(fav_place.getAddress());
         tvlat.setText(fav_place.getFavLatitude());
         tvlng.setText(fav_place.getFavLongitude());
@@ -56,7 +67,7 @@ public class placeAdapter extends ArrayAdapter {
         return v;
     }
 
-    public void deleteplace(final favoritePlace place) {
+    public void deleteplace(final favouritePlace place) {
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
         builder.setTitle("Are you sure?");
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
